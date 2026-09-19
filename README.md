@@ -1,3 +1,5 @@
+![Playwright Tests](https://github.com/miteshahir0505/self-learning-playwright-agent/actions/workflows/playwright.yml/badge.svg)
+
 # Self-Learning Playwright Agent
 
 AI-augmented test automation that generates test cases from requirements and heals its own broken selectors — getting faster every time it encounters a problem it's already solved.
