@@ -1,0 +1,22 @@
+[2026-09-19T04:38:59.648Z] Selector broken: "#user-name-field" (intent: the username input field on the login form)
+[2026-09-19T04:39:15.847Z] AI suggested selector: "#user-name"
+[2026-09-19T05:22:17.735Z] Selector broken: "#user-name-field" (intent: the username input field on the login form)
+[2026-09-19T05:22:23.222Z] AI suggested selector: "#username"
+[2026-09-19T05:22:23.233Z] Healed and cached: "#user-name-field" -> "#username"
+[2026-09-19T05:26:13.474Z] Selector broken: "#user-name-field" (intent: the username input field on the login form)
+[2026-09-19T05:26:13.483Z] Used cached fix: "#username" (no AI call needed)
+[2026-09-19T05:27:26.189Z] Selector broken: "#user-name-field" (intent: the username input field on the login form)
+[2026-09-19T05:27:26.194Z] Used cached fix: "#username" (no AI call needed)
+[2026-09-19T05:50:59.707Z] Selector broken: "#submit-btn" (intent: the Submit button below the username field)
+[2026-09-19T05:51:06.623Z] AI suggested selector: "button[id^="submit-btn"]"
+[2026-09-19T05:51:06.632Z] Healed and cached: "#submit-btn" -> "button[id^="submit-btn"]"
+[2026-09-19T05:51:17.152Z] Selector broken: "#submit-btn" (intent: the Submit button below the username field)
+[2026-09-19T05:51:17.157Z] Used cached fix: "button[id^="submit-btn"]" (no AI call needed)
+[2026-09-19T05:53:21.518Z] Selector broken: "#submit-btn" (intent: the Submit button below the username field)
+[2026-09-19T05:53:21.524Z] Used cached fix: "button[id^="submit-btn"]" (no AI call needed)
+[2026-09-19T05:53:28.204Z] Selector broken: "#submit-btn" (intent: the Submit button below the username field)
+[2026-09-19T05:53:28.209Z] Used cached fix: "button[id^="submit-btn"]" (no AI call needed)
+[2026-09-19T05:56:34.544Z] Selector broken: "#submit-btn" (intent: the Submit button below the username field)
+[2026-09-19T05:56:34.548Z] Used cached fix: "button[id^="submit-btn"]" (no AI call needed)
+[2026-09-19T05:56:41.318Z] Selector broken: "#submit-btn" (intent: the Submit button below the username field)
+[2026-09-19T05:56:41.323Z] Used cached fix: "button[id^="submit-btn"]" (no AI call needed)

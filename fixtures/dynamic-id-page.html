@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dynamic ID Demo</title>
+</head>
+<body>
+  <h1>Dynamic Login</h1>
+  <input type="text" id="username-field" placeholder="Username" />
+  <br /><br />
+  <button id="submit-btn-placeholder">Submit</button>
+
+  <script>
+    // Simulate a real-world dynamic ID (e.g. from a component library)
+    const randomSuffix = Math.random().toString(36).substring(2, 8);
+    const btn = document.getElementById('submit-btn-placeholder');
+    btn.id = 'submit-btn-' + randomSuffix;
+    btn.addEventListener('click', () => {
+      document.body.insertAdjacentHTML('beforeend', '<p id="result">Form submitted</p>');
+    });
+  </script>
+</body>
+</html>
