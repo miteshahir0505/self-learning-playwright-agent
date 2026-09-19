@@ -1,0 +1,104 @@
+[
+  {
+    "id": "TC-001",
+    "title": "Successful Login with Valid Credentials",
+    "priority": "High",
+    "type": "Positive",
+    "steps": [
+      "Navigate to https://www.saucedemo.com",
+      "Enter 'standard_user' into the Username field",
+      "Enter 'secret_sauce' into the Password field",
+      "Click the Login button"
+    ],
+    "expectedResult": "User is successfully authenticated and redirected to the inventory page (https://www.saucedemo.com/inventory.html)."
+  },
+  {
+    "id": "TC-002",
+    "title": "Login Attempt with Invalid Credentials",
+    "priority": "High",
+    "type": "Negative",
+    "steps": [
+      "Navigate to https://www.saucedemo.com",
+      "Enter 'invalid_user' into the Username field",
+      "Enter 'wrong_password' into the Password field",
+      "Click the Login button"
+    ],
+    "expectedResult": "User remains on the login page and sees error message: 'Epic sadface: Username and password do not match any user in this service'."
+  },
+  {
+    "id": "TC-003",
+    "title": "Login Attempt with Locked-Out User Account",
+    "priority": "High",
+    "type": "Negative",
+    "steps": [
+      "Navigate to https://www.saucedemo.com",
+      "Enter 'locked_out_user' into the Username field",
+      "Enter 'secret_sauce' into the Password field",
+      "Click the Login button"
+    ],
+    "expectedResult": "User remains on the login page and sees error message: 'Epic sadface: Sorry, this user has been locked out.'"
+  },
+  {
+    "id": "TC-004",
+    "title": "Login Attempt with Empty Fields",
+    "priority": "Medium",
+    "type": "Negative",
+    "steps": [
+      "Navigate to https://www.saucedemo.com",
+      "Leave Username and Password fields blank",
+      "Click the Login button"
+    ],
+    "expectedResult": "User remains on the login page and sees validation error message: 'Epic sadface: Username is required'."
+  },
+  {
+    "id": "TC-005",
+    "title": "Login Attempt with Empty Password Field",
+    "priority": "Medium",
+    "type": "Negative",
+    "steps": [
+      "Navigate to https://www.saucedemo.com",
+      "Enter 'standard_user' into the Username field",
+      "Leave Password field blank",
+      "Click the Login button"
+    ],
+    "expectedResult": "User remains on the login page and sees validation error message: 'Epic sadface: Password is required'."
+  },
+  {
+    "id": "TC-006",
+    "title": "Verify Password Input Field Masking",
+    "priority": "Medium",
+    "type": "Positive",
+    "steps": [
+      "Navigate to https://www.saucedemo.com",
+      "Enter 'secret_sauce' into the Password field",
+      "Observe the displayed text in the Password field",
+      "Inspect the element type attribute in browser Developer Tools"
+    ],
+    "expectedResult": "Password characters are masked (displayed as dots/asterisks) and the input field has attribute type='password'."
+  },
+  {
+    "id": "TC-007",
+    "title": "SQL Injection Prevention in Login Form",
+    "priority": "High",
+    "type": "Edge Case",
+    "steps": [
+      "Navigate to https://www.saucedemo.com",
+      "Enter \"' OR '1'='1\" into the Username field",
+      "Enter \"' OR '1'='1\" into the Password field",
+      "Click the Login button"
+    ],
+    "expectedResult": "Authentication fails gracefully without exposing database errors, and user sees standard invalid user error message."
+  },
+  {
+    "id": "TC-008",
+    "title": "Direct URL Access Bypass Prevention",
+    "priority": "High",
+    "type": "Edge Case",
+    "steps": [
+      "Open a new unauthenticated browser session",
+      "Navigate directly to 'https://www.saucedemo.com/inventory.html'",
+      "Observe application behavior"
+    ],
+    "expectedResult": "Direct access is denied, user is redirected back to login page ('https://www.saucedemo.com'), and sees error: 'Epic sadface: You can only access '/inventory.html' when you are logged in.'"
+  }
+]

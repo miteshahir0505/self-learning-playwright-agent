@@ -15,6 +15,10 @@ export class InventoryPage {
     return this.page.locator(`[data-test="remove-${productSlug}"]`);
   }
 
+  async openCart() {
+    await this.page.locator('.shopping_cart_link').click();
+  }
+
   async isOnInventoryPage(): Promise<boolean> {
     return this.page.url().includes('inventory.html');
   }

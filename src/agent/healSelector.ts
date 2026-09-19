@@ -27,6 +27,25 @@ that correctly matches the element described by the intent.
 `.trim();
 }
 
+async function findLocalSelector(page: Page, intent: string): Promise<string | null> {
+  const normalizedIntent = intent.toLowerCase();
+  const candidates = normalizedIntent.includes('username')
+    ? ['#username', 'input[name="username"]', 'input[type="text"]']
+    : normalizedIntent.includes('password')
+      ? ['#password', 'input[name="password"]', 'input[type="password"]']
+      : normalizedIntent.includes('submit') || normalizedIntent.includes('button')
+        ? ['button[type="submit"]', 'input[type="submit"]']
+        : [];
+
+  for (const candidate of candidates) {
+    if (await page.locator(candidate).count() > 0) {
+      return candidate;
+    }
+  }
+
+  return null;
+}
+
 export async function getWorkingSelector(
   page: Page,
   brokenSelector: string,
@@ -49,6 +68,14 @@ export async function getWorkingSelector(
       return cached;
     }
     log(`Cached fix "${cached}" no longer works either, falling back to AI`);
+  }
+
+  // Prefer deterministic selectors for common form controls before using AI.
+  const localSelector = await findLocalSelector(page, intent);
+  if (localSelector) {
+    log(`Used local selector: "${localSelector}" (no AI call needed)`);
+    saveFix(brokenSelector, intent, localSelector);
+    return localSelector;
   }
 
   // 3. Ask Gemini using current page HTML

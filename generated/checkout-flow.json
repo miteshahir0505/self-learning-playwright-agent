@@ -1,0 +1,94 @@
+[
+  {
+    "id": "TC-001",
+    "title": "Complete End-to-End Successful Checkout and Download Receipt PDF",
+    "priority": "High",
+    "type": "Positive",
+    "steps": [
+      "Navigate to Cart page with items in cart",
+      "Click 'Checkout' button",
+      "Enter valid First Name, Last Name, and Zip/Postal Code",
+      "Click 'Continue' button",
+      "Review items, price breakdown, and total on Overview page",
+      "Click 'Finish' button",
+      "Verify confirmation message and absence of cart badge",
+      "Click 'Generate PDF' button"
+    ],
+    "expectedResult": "Order is successfully completed, cart badge is removed, and a PDF document of the order confirmation is downloaded."
+  },
+  {
+    "id": "TC-002",
+    "title": "Submit Checkout Information Form with Required Fields Empty",
+    "priority": "High",
+    "type": "Negative",
+    "steps": [
+      "Navigate to Cart page and click 'Checkout'",
+      "Leave First Name, Last Name, and Zip/Postal Code empty",
+      "Click 'Continue' button"
+    ],
+    "expectedResult": "Validation error message is displayed, user stays on the checkout information page, and process does not proceed."
+  },
+  {
+    "id": "TC-003",
+    "title": "Cancel Checkout from Information Form Page",
+    "priority": "Medium",
+    "type": "Positive",
+    "steps": [
+      "Navigate to Cart page and click 'Checkout'",
+      "Fill in partial or full information in the form",
+      "Click 'Cancel' button"
+    ],
+    "expectedResult": "User is navigated back to the Cart page, and all original items remain in the cart."
+  },
+  {
+    "id": "TC-004",
+    "title": "Cancel Checkout from Overview Page",
+    "priority": "Medium",
+    "type": "Positive",
+    "steps": [
+      "Navigate to Cart page and click 'Checkout'",
+      "Fill all required fields and click 'Continue'",
+      "On the Overview page, click 'Cancel' button"
+    ],
+    "expectedResult": "User is navigated back to the previous page/inventory without completing the order, and cart contents are preserved."
+  },
+  {
+    "id": "TC-005",
+    "title": "Verify Price Breakdown and Order Summary Details on Overview Page",
+    "priority": "High",
+    "type": "Positive",
+    "steps": [
+      "Navigate to Cart page containing multiple items",
+      "Click 'Checkout', fill valid form fields, and click 'Continue'",
+      "Inspect the Overview page for item list, subtotal, tax, and total price"
+    ],
+    "expectedResult": "Overview page accurately displays all cart items, correct item subtotal, applicable tax, and calculated total price."
+  },
+  {
+    "id": "TC-006",
+    "title": "Network Interruption While Submitting Order ('Finish' Action)",
+    "priority": "High",
+    "type": "Edge Case",
+    "steps": [
+      "Proceed through checkout up to the Overview page",
+      "Disconnect/interrupt network connection",
+      "Click 'Finish' button",
+      "Verify system behavior and attempt order status check"
+    ],
+    "expectedResult": "Order is not placed due to network loss, an error/offline notice is displayed, and the cart contents remain intact."
+  },
+  {
+    "id": "TC-007",
+    "title": "Network Disconnection and Automatic Restoration During Active Checkout",
+    "priority": "Medium",
+    "type": "Edge Case",
+    "steps": [
+      "Start checkout process from Cart page",
+      "Disconnect internet connection while filling the form or loading Overview page",
+      "Observe application handling network loss",
+      "Restore internet connection automatically",
+      "Proceed with submitting the form and clicking 'Finish'"
+    ],
+    "expectedResult": "After internet connection is restored, the user is allowed to seamlessly continue and complete the checkout process without data loss."
+  }
+]
